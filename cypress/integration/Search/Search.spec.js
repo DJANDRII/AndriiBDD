@@ -39,6 +39,7 @@ And("I want to read information about `Born, Died, Education` on the right colum
   }
 );
 
+
 And("I want to read a section about `Early Years`", () => {
   cy.get("#Early_years").scrollIntoView().should('be.visible');
 });
