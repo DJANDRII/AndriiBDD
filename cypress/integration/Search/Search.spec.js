@@ -1,7 +1,14 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
 Given("I open web browser for `https://www.wikipedia.org`", () => {
-  cy.visit("https://www.wikipedia.org/");
+  cy.visit("https://www.wikipedia.org/", {
+    onBeforeLoad(win) {
+        Object.defineProperty(win.navigator, 'languages', {
+            value: ['en-US'],
+        });
+    }
+}
+); 
 });
 
 When("I type `Nicola Tesla` on the search box", () => {
